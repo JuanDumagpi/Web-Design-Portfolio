@@ -1,0 +1,296 @@
+/* Imports the teko and lato fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Teko:wght@300..700&display=swap');
+
+
+/* CSS reset to make all the padding and margins to 0 */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+    color: #FFFFFF;
+}
+
+
+/* Setting the padding and colors for all the button */
+button{
+    border-radius: 16px;
+    padding: 16px;
+    background-color: #231651;
+    border-color: #EEF36A;
+}
+
+/* Creates a navigation bar, the logo, the links and call to action */
+.navbar{
+    background-color: #231651;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 16px;
+    margin-bottom: 16px;
+    border-style: solid;
+    border-color: #EEF36A;
+    border-width: 2px;
+}
+
+/* Doesnt display the navbar links in mobile */
+.navbar ul{
+    display: none;
+}
+/* Erases the bullet points and displays the list side by side */
+.navbar li{
+    text-decoration: none;
+    display: inline;
+    padding: 16px;
+}
+
+.navbar Button{
+    width: 200px;
+}
+
+/* Removes the underline for anchor tags */
+a{
+    font-family: "Teko", sans-serif;
+    font-size: 2em;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+/* Makes sure that visited anchor text does turn purple */
+a:visited{
+    color: #FFFFFF;
+}
+
+body{
+    background-color: #070410;
+}
+
+/* On mobile, makes sure that the content is goes all the way to the sides of the screen */
+main{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+button{
+    font-family: "Teko", sans-serif;
+    font-size: 2em;
+}
+
+h3{
+    font-family: "Teko", sans-serif;
+    font-size: 2em;
+}
+
+/* puts the .moviecards in a grid, that I can change later in the media query when in tablet/desktop mode */
+.moviesContainer{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+
+/* organizes the image and information on each card */
+.movieCard{
+    background-color: #231651;
+    border-color: #EEF36A;
+    border-style: solid;
+    border-width: 2px;
+    display: grid;
+}
+
+.cardImgBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+/* makes sure the image takes up the entire div, without distorting the aspect ratio */
+.cardImgBox img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.cardTxt{
+    padding: 16px;
+}
+
+.cardTxt p{
+    font-size: 1.5em;
+}
+
+.cardButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
+
+
+/* This changes the styling when the screen is in tablet mode */
+@media (min-device-width:720px){
+
+    /* headers are bigger in tablet and desktop mode */
+    h3{
+        font-size: 3em;
+    }
+
+    /* Added a box shadow when in tablet and desktop mode as well as make the bottom spacing of the navbar bigger */
+    .navbar{
+        box-shadow: 4px 8px 4px #070410;
+        margin-bottom: 32px;
+    }
+
+    /* displays the links in tablet and desktop mode */
+    .navbar ul{
+        display: block;
+    }
+
+    /* color change! */
+    body{
+        background-color: #231651;
+    }
+
+    /* Keeps the main content at 900px for both laptop and desktop */
+    main{
+        width: 900px;
+    }
+
+    /* Changes the layout of the movies grid to 2 columns */
+    .moviesContainer{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }
+
+    /* Changes the movie card containers  */
+    .movieCard{
+        grid-template-rows: repeat(2, 1fr);
+        box-shadow: 4px 8px 4px #070410;
+    }
+
+    .cardImgBox{
+        display: flex;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* changes the spacing of the movie information so that the text and buttons are lined up horizontally, puting as much space between the elements */
+    .cardInfo{
+        display: flex;
+        flex-direction: column;
+        justify-content:space-between;
+    }
+    
+}
+/* This is for desktop and bigger screens */
+@media (min-device-width:1024px) {
+
+    h3{
+        font-size: 3em;
+    }
+
+    .navbar{
+        box-shadow: 4px 8px 4px #070410;
+        margin-bottom: 48px;
+    }
+
+    .navbar ul{
+        display: block;
+    }
+
+    main{
+        width: 900px;
+    }
+
+    .moviesContainer{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 48px;
+    }
+
+    .movieCard{
+        grid-template-rows: auto;
+        box-shadow: 4px 8px 4px #070410;
+    }
+    
+    /* Changes the featured movie's layout */
+    .movieCard:first-child .cardInfo{
+        display: flex;
+        flex-direction: row;
+    }
+    /* makes the button take the full width of its flexbox */
+    .movieCard Button{
+        width: max-content;
+        height: 100%;
+        padding: 16px;
+    }
+
+    /* first-child and nth-child lets me change specific elements based on when they first appear */
+    /* the 2nd and 3rd movie cards are in a 2 column layout*/
+    /* the rest of the cards have grid-column: span 2, making them take two columns of the grid */
+    .movieCard:nth-child(2){
+        grid-column: span 1;
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    .movieCard:nth-child(2) .cardInfo{
+        display: flex;
+        flex-direction: column;
+        justify-content:space-between;
+    }
+
+    .movieCard:nth-child(3){
+        grid-column: span 1;
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    .movieCard:nth-child(3) .cardInfo{
+        display: flex;
+        flex-direction: column;
+        justify-content:space-between;
+    }
+
+    .movieCard:nth-child(3) .cardInfo{
+        display: flex;
+        flex-direction: column;
+        justify-content:space-between;
+    }
+
+    .movieCard:nth-child(4){
+        grid-column: span 2;
+        grid-auto-rows: auto;
+        grid-template-columns: repeat(2,1fr);
+    }
+    
+    .movieCard:nth-child(5){
+        grid-column: span 2;
+        grid-auto-rows: auto;
+        grid-template-columns: repeat(2,1fr);
+    }
+ 
+    .movieCard:nth-child(6){
+        grid-column: span 2;
+        grid-auto-rows: auto;
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .movieCard{
+        border-width: 2px;
+        grid-column: span 2;
+    }
+
+    .cardImgBox{
+        display: flex;
+        width: 100%;
+        height: 100%;
+    }
+
+
+    .cardInfo{
+        display: flex;
+    }
+}

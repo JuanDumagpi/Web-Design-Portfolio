@@ -1,0 +1,432 @@
+/* imports fonts */
+@import url('https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Protest+Guerrilla&display=swap');
+
+/* resets the CSS to 0 margins and padding */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+body{
+    background-color: #e9e9e9;
+}
+
+/* centers the logo */
+.logo{
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
+
+}
+
+/* keeps the logo to 200px */
+.logo img{
+    min-width: 200px;
+}
+
+/* positions the navigation buttons to the center */
+.nav {
+    margin-left: 15%;
+    margin-right: 15%;   
+    padding: 50px; 
+    font-size: 1.25rem;
+    }
+
+/* Erases the bullet points for the list and uses display:flex to put them side by side */
+.nav ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Erases the underline for text links */
+.nav a{
+    text-decoration: none;
+}
+
+/* doesnt change visited links to purple */
+.nav a:visited{
+    color: black;
+}
+
+/* the main container of the content, gives it a border */
+.container{
+    margin-left: 20%;
+    margin-right: 20%;
+    border-style: solid;
+    border-width:  2px;
+    background-color: white;
+}
+/* Padding for the inside of the main content */
+.content{
+    padding: 50px;
+}
+
+/* For the healine title */
+h1{
+    font-family: "Protest Guerrilla", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 7rem;
+}
+
+/* For the heading of the articles */
+h2{
+    font-family: "Protest Guerrilla", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3rem;
+    padding-bottom: 1rem;
+}
+
+/* Text in the headline should be bigger than the rest of the article */
+.headline p{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 1.25rem;
+    width: 75%
+}
+
+/* places the articles in 3 columns */
+.articles{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    column-count: 3;
+}
+/* spacing for the paragraphs */
+p{
+    padding-bottom: 1rem;
+}
+
+/* Grid for the album covers, 1 bigger featured album and 4 smaller ones */
+.imgAlbum{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 0px;
+}
+/* centers the images in the imgAlbumBox div */
+.imgAlbumBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* Makes the bigger, featured album take 2 columns and rows*/
+.imgAlbumBox:first-child{
+    grid-column: span 2;
+    grid-row: span 2;
+
+}
+
+/* object-fit: cover makes the image take the entire div size without distorting the aspect ratio*/
+.imgAlbumBox:first-child img{
+    width: 100%;    
+    height: 100%;
+    object-fit: cover;
+}
+
+.imgAlbumBox img{
+    width: 100%;    
+    height: 100%;
+    object-fit: cover;
+}
+
+/* div for the author image and info, used a grid to be able to move around the content in different media queries */
+.authorBlock{
+    padding-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    
+}
+
+/* dictates where the author information starts and ends in the grid */
+.authorText{
+    grid-column: 1 / 4;
+    grid-row: 1/2;
+    width:100%;
+}
+
+.authorText h2{
+    text-align: center;
+}
+
+/* centers the author image in the div, as well as dictates where it starts and ends in the grid*/
+.authorPic{
+    grid-column: 4 / 6;
+    grid-row: 1/2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+/* keeps the author's photo at 200px, as well as making it round */
+.authorPic img{
+    width: 200px;
+    border-radius: 50%;
+}
+
+/* footer */
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #14181d;
+    font-size: .75rem;
+    color: white;
+    padding: 50px;
+}
+
+.footer p{
+    padding: 0;
+}
+
+/*This is for screens 540px and lower!*/
+@media screen and (max-device-width:540px){
+    
+    .logo{
+        padding-top: 12px;
+    }
+    
+    /* logo image should be smaller in mobile */
+    .logo img{
+        min-width: 80px;
+    }
+
+    .nav {
+        padding: 12px; 
+        font-size: 2rem;
+        }
+
+    .headline p{
+        font-size: 2.5rem;
+        width: 100%
+    }
+
+    /* heading size changes, as well as aligning to center */
+    h1 {
+        font-size: 6.75rem;
+        text-align: center;
+    }
+
+    h2{
+        font-size: 6.75rem;
+        text-align: center;
+    }
+
+    p{
+        font-size: 2.25rem;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    /* makes the main content take the full width of the page */
+    .container{
+        margin-left: 0;
+        margin-right: 0;
+        border-style: solid;
+        border-width:  2px;
+        background-color: white;
+
+    }
+
+    .content{
+        padding: 12px;
+    }
+    
+    /* puts the articles in only one column */
+    .articles{
+        padding-top: 12px;
+        padding-bottom: 12px;
+        column-count: 1;
+    }
+
+    /* disables display:grid for the album images  */
+    .imgAlbum{
+        display: block;
+    }
+
+    /* disables the display:grid for the author info and image */
+    .authorBlock{
+        padding-top: 12px;
+        display: block;
+    }
+
+    .authorPic img{
+        min-width: 200px;
+    }
+
+    .footer{
+        padding: 12px;
+    }
+
+    .footer p{
+        font-size: 1rem;
+    }
+}
+
+/*This is for screens 541px-719px!*/
+@media screen and (min-device-width: 541px) and (max-device-width:719px){
+    
+    .logo{
+        padding-top: 20px;
+    }
+    
+    .logo img{
+        width: 80px;
+    }
+
+    .nav {
+        padding: 20px; 
+        font-size: 2rem;
+        }
+
+    .headline p{
+        font-size: 2.5rem;
+        width: 100%
+    }
+
+    h1 {
+        font-size: 6.75rem;
+        text-align: center;
+    }
+
+    h2{
+        font-size: 6.75rem;
+        text-align: center;
+    }
+
+    p{
+        font-size: 2.25rem;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .container{
+        margin-left: 0;
+        margin-right: 0;
+        border-style: solid;
+        border-width:  2px;
+        background-color: white;
+
+    }
+
+    .content{
+        padding: 20px;
+    }
+    
+    .articles{
+        padding-top: 20px;
+        padding-bottom: 20px;
+        column-count: 1;
+    }
+
+    .imgAlbum{
+        display: block;
+    }
+
+    .authorBlock{
+        padding-top: 20px;
+        display: block;
+    }
+
+    .authorPic img{
+        min-width: 200px;
+    }
+
+    .footer{
+        padding: 20px;
+    }
+
+    .footer p{
+        font-size: 1rem;
+    }
+}
+
+/*This is for screens 720px - 1023!*/
+@media screen and (min-device-width: 720px) and (max-device-width:1023px){
+    
+    .logo{
+        padding-top: 30px;
+    }
+    
+    .logo img{
+        width: 80px;
+    }
+
+    .nav {
+        padding: 30px; 
+        }
+
+    .headline p{
+        width: 100%
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    h2{
+        text-align: center;
+    }
+
+    p{
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .container{
+        margin-left: 10%;
+        margin-right: 10%;
+        border-style: solid;
+        border-width:  2px;
+        background-color: white;
+
+    }
+
+    .content{
+        padding: 30px;
+    }
+    
+    .articles{
+        padding-top: 30px;
+        padding-bottom: 30px;
+        column-count: 1;
+    }
+
+    .imgAlbum{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    /* hides the first album from view */
+    .imgAlbumBox:first-child{
+        display: none;
+    }
+
+    .authorBlock{
+        padding-top: 30px;
+        display: grid;
+    }
+
+    .authorBlock h2{
+        padding-bottom: 0;
+    }
+
+    .authorPic img{
+        min-width: 200px;
+    }
+
+    .footer{
+        padding: 30px;
+    }
+}
