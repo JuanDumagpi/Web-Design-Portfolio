@@ -7,15 +7,11 @@
     <div class="top-bar"><h1>My Forum</h1></div>
     <div class="main">
                 <div class="header">
-                    <h4 class="title">Post 1</h4>
-                    <div class="bottom">
-                        <p class="timestamp">1/23/2024</p>
-                        <p class="comment-count">0 comments</p>
                     </div>
                 </div>
-        <textarea name="" id=""></textarea>
+        <textarea id="commentBox"></textarea>
 
-        <button>Add Comment</button>
+        <button id="commentButton">Add Comment</button>
 
         <div class="comments">
         </div>
@@ -60,14 +56,15 @@
                 addComment(comment);
             }
 
-            var addComment = document.querySelector('button');
-            addComment.addEventListener('click', function(){
-                var txt = document.querySelector('textarea');
+            var commentBTN = document.querySelector("#commentButton");
+            commentBTN.addEventListener('click', function(){
+                var txt = document.querySelector("#commentBox");
                 var comment = {
                     content: txt.value,
-                    author: 'User'
+                    author: "User"
                 }
-                addComment(comment);
+            addComment(comment);
+            txt.value = ""
             })
         </script>
     </div>
