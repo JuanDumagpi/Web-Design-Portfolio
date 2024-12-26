@@ -9,15 +9,18 @@
                 <div class="header">
                     </div>
                 </div>
+        
+        <!--textbox for comments and button to submit-->
         <textarea id="commentBox"></textarea>
-
         <button id="commentButton">Add Comment</button>
 
+        <!--empty div where all the comments go-->
         <div class="comments">
         </div>
 
 
         <script>
+
             //This takes the post's title and makes it the header for this comment section by taking the link's ID and finding it in the posts array of the js file
             var id = window.location.search.slice(1).split("=")[1];
             var post = posts.find(t => t.id == id);
@@ -34,6 +37,7 @@
                     `
             header.insertAdjacentHTML('beforeend', headerHTML);
             
+           //This function appends the comment into the html file
             function addComment(comment){
                 var commentHTML = `
                                 <div class="comments">
@@ -56,6 +60,7 @@
                 addComment(comment);
             }
 
+            //This stores the data in the text area, and then runs the addComment function above to post it in the comments section, then clears the text area
             var commentBTN = document.querySelector("#commentButton");
             commentBTN.addEventListener('click', function(){
                 var txt = document.querySelector("#commentBox");
@@ -66,6 +71,7 @@
             addComment(comment);
             txt.value = ""
             })
+
         </script>
     </div>
 </body>

@@ -4,7 +4,7 @@ var posts = [
         title: "This post is about dogs",
         author: "Jane",
         date: Date.now(),
-        content: "Thread content",
+        content: "I like dogs.",
         comments: [
             {
                 author: "John",
@@ -21,7 +21,7 @@ var posts = [
         title: "This post is not about dogs",
         author: "Not Jane",
         date: Date.now(),
-        content: "Thread content",
+        content: "I like cats.",
         comments: [
             {
                 author: "Not John",
@@ -34,3 +34,4 @@ var posts = [
         ]
     }
 ]
+

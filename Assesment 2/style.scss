@@ -17,6 +17,11 @@ h1, h4, ol{
     font-size: 12px;
 }
 
+
+.postAuthor{
+    padding-right: 10px;
+} 
+
 .timestamp{
     padding-right: 10px;
 }
@@ -54,6 +59,28 @@ button{
     margin: 40px 0;
 }
 
-#newPost{
+.newPost{
     margin: 0 0 0 80px;
+}
+
+#popUp{
+        padding: 1em;
+        height: 80%;
+        width: 80%;
+
+    h4{
+        padding: 5px 10px 5px;
+    }
+
+    textarea{
+        width: 100%;
+    }
+
+    #title{
+        height: 1em;
+    }
+
+    #descript{
+        height: 4em;
+    }
 }
