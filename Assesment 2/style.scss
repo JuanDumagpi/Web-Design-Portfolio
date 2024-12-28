@@ -9,6 +9,13 @@ a{
 
 h1, h4, ol{
     margin: 0;
+    padding: 5px 0;
+}
+
+.logolink{
+    a{
+        color: white;
+    }
 }
 
 .bottom, .top-comment{
@@ -17,6 +24,24 @@ h1, h4, ol{
     font-size: 12px;
 }
 
+.topics{
+    list-style-type: none;
+}
+
+//makes each topic link button not look like a button
+.poster{
+    background: none;
+    border: none;
+    padding: 0;
+    text-align: left;
+}
+
+.top-comment{
+    p{
+        padding: 0;
+        margin: 0;
+    }
+}
 
 .postAuthor{
     padding-right: 10px;
@@ -56,7 +81,14 @@ button{
 }
 
 .comments{
-    margin: 40px 0;
+    margin: 20px 0;
+}
+
+.comment-content{
+    p{
+        padding: 0;
+        margin: 0;
+    }
 }
 
 .newPost{

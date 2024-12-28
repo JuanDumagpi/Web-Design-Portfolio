@@ -2,7 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
-        <script src="/data.js"></script>
+        <script src="data.js"></script>
     </head>
 
     <body>
@@ -20,19 +20,18 @@
             for (let post of posts){
                 var html = `
                 <li class="row">
-                    
-                    <h1 class="title">
-                        <!--this is for directing the post links to the page url based on the post array's id and then later using the title as the header in that page-->
-                        <a href="/thread.html?id=${post.id}">${post.title}</a>
-                    </h1>
+                        <h1 class="title">
+                            <!--this is for directing the post links to the page url based on the post array's id and then later using the title as the header in that page-->
+                            <a href="thread.html?id=${post.id}">${post.title}</a>
+                        </h1>
 
-                        <h4 class="postContent">${post.content}</h4>
-                        <div class="bottom">
-                            <!--shows the date the post was made as well as how many comments the post has-->
-                            <p class="postAuthor">by ${post.author}</p>
-                            <p class="timestamp">${new Date(post.date).toLocaleString()}</p>
-                            <p class="comment-count">${post.comments.length} comments</p>
-                        </div>
+                            <h4 class="postContent">${post.content}</h4>
+                            <div class="bottom">
+                                <!--shows the date the post was made as well as how many comments the post has-->
+                                <p class="postAuthor">by ${post.author}</p>
+                                <p class="timestamp">${new Date(post.date).toLocaleString()}</p>
+                                <p class="comment-count">${post.comments.length} comments</p>
+                            </div>
                 </li>
                 `
                 container.insertAdjacentHTML('beforeend', html)
@@ -54,9 +53,9 @@
 
         <!--This is the script for the popup for submitting a topic-->
         <script>
-            const popUp = document.querySelector("#popUp"); //For the pop up modal
-            const openPop = document.querySelector("[newPost]"); //For the button that opens the popup
-            const closePop = document.querySelector("[closePost]"); //For the button that closes the popup
+            const popUp = document.querySelector("#popUp"); //For the pop up modal of the topic submission
+            const openPop = document.querySelector("[newPost]"); //For the button that opens the popup for topic submission
+            const closePop = document.querySelector("[closePost]"); //For the button that closes the topic submission popup
             openPop.addEventListener('click', () => {popUp.showModal();})
             closePop.addEventListener('click', () => {popUp.close();})
         </script>
@@ -67,10 +66,9 @@
                 var container = document.querySelector(".topics")
                 var newPostHTML = `
                 <li class="row">
-
                     <h1 class="title">
                         <!--this is for the new user inputted title-->
-                        <a href="/thread.html?id=${newPostValue.id}">${newPostValue.title}</a>
+                        <a href="thread.html?id=${newPostValue.id}">${newPostValue.title}</a>
                     </h1>
                     
                     <h4 class="postContent">${newPostValue.content}</h4>
