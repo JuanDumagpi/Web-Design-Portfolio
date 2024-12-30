@@ -5,13 +5,13 @@ body{
     background-image: url(assets/nb.jpg);
     background-size: cover;
     background-attachment: fixed;
+    background-position: center;
     overflow: hidden;
 }
 
 .main{
     padding: 10px 15px;
     max-height: 30%;
-    justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -70,7 +70,7 @@ h4{
 }
 
 .top-bar{
-    padding-left: 40px;
+    padding:0 40px 0 40px;
     text-align: center;
     img{
         height: 100px;
@@ -88,8 +88,7 @@ h4{
     margin: 0;
     max-height: 70vh;
     width: 100%;
-    overflow: scroll;
-    overflow-x: hidden;
+    overflow-y: scroll;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -126,7 +125,8 @@ h4{
 }
 
 .postContent{
-    height: 135px
+    height: 135px;
+    font-family: "Rye", serif;
 }
 
 button{
@@ -197,7 +197,6 @@ button{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
 }
 
 .inn{
@@ -263,5 +262,165 @@ button{
     width: 20%;
     img{
         width: 60%;
+    }
+}
+
+@media only screen and (max-device-width: 480px){
+    
+    .top-bar{
+        margin-bottom: 60px;
+    }
+
+    #postQuest{
+        text-align: center;
+        padding: 20px 0;
+        height: 50%;
+        width: 100%;
+        img{
+            height: 50%;
+            width: 50%;
+        }
+    }
+
+    .topics{
+        align-items: center;
+        flex-direction: row;
+        max-height: 75vh;
+        width: 90%;
+    }
+
+    .poster{
+        height: 800px;
+        width: 800px;
+    }
+
+    .posterContents{
+
+        margin: 0;
+        padding: 100px;
+
+    }
+    
+    .titleBlock{
+        width: 80%;
+        height: 120px;
+        word-wrap: break-word;
+        margin-bottom: 45px;
+        h1{
+            font-size: 2.25em;
+        }
+    }
+    
+    .postContent{
+        height: 350px;
+    }
+
+    .bottom{
+        p{
+            font-size: 2em;
+        }
+    }
+
+    #popUp{
+
+        h4{
+            font-size: 2em;
+        }
+        textarea{
+            font-size: 2em;
+        }
+
+        #title{
+            height: 2em;
+        }
+
+        #descript{
+            height: 6em;
+        }
+    }
+
+    main{
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    .inn{
+        background: url(assets/inn-m.jpg);
+        background-size: cover;
+        height: 100%;
+    }
+
+
+    .popUpContainer{
+        height: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+    }
+
+    .popButtons{
+        button{
+            height: 50%;
+            width: 50%;
+            img{
+                width: 100%;
+            }
+        }
+    }
+
+    .threadPoster{
+    background: url(assets/p2.png);
+    background-size:cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    }
+
+    body{
+        margin: 0;
+    }
+
+    .main{
+        max-height: 100%;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .title{
+        font-size: 3em;
+    }
+
+    .postContent{
+        font-size: 1.8em;
+    }
+
+    .threadContents{
+        padding-left: 150px;
+        padding-right: 100px;
+    }
+
+    #commentInput{
+        width: 100%;
+        height: 4em;
+        font-size: 2em;
+    }
+
+    #commentButton{
+        height: 25%;
+        width: 25%;
+        img{
+            width: 100%;
+        }
+    }
+
+    .comments{
+        font-size: 1.5em;
+    }
+
+    .commentBox{
+        overflow-y: scroll;
+        height: 30vh;
     }
 }
