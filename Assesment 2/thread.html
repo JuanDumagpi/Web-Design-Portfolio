@@ -4,75 +4,89 @@
 </head>
 
 <body>
-    <div class="top-bar"><h1 class="logolink"><a href="index.html">My Forum</h1></a></div>
+    <div class="top-bar">
+        <a href="index.html">
+            <div class="logoImg">
+                <img src="assets/Quests.png" alt="" >
+            </div>
+        </a>
+    </div>
     <div class="main">
-                <div class="header">
-                    </div>
-                </div>
-        
-        <!--textbox for comments and button to submit-->
-        <textarea id="commentBox"></textarea>
-        <button id="commentButton">Add Comment</button>
 
-        <!--empty div where all the comments go-->
-        <div class="comments">
-        </div>
-
-
-        <script>
-
-            //This takes the post's title and makes it the header for this comment section by taking the link's ID and finding it in the posts array of the js file
-            var id = window.location.search.slice(1).split("=")[1];
-            var post = posts.find(t => t.id == id);
-            console.log(post);
-            var header = document.querySelector(".header")
-            var headerHTML = `
-                        <!--This takes the post's title and makes it the header for this comment section-->
-                        <h4 class="title">${post.title}</h4> 
-                        <p class="postContent">${post.content}</p>
-                        <div class="bottom">
-                        <!--shows the date the post was made as well as how many comments the post has-->
-                        <p class="timestamp">${new Date(post.date).toLocaleString()}</p>
-                        <p class="comment-count">${post.comments.length} comments</p>
+        <div class="threadPoster">
+            <div class="threadContents">
+                        <div class="header">
                         </div>
-                    `
-            header.insertAdjacentHTML('beforeend', headerHTML);
-            
-           //This function appends the comment into the html file
-            function addComment(comment){
-                var commentHTML = `
-                                <div class="comments">
-                                    <div class="comment">
-                                        <div class="top-comment">
-                                            <p class="user">${comment.author}</p>
-                                        </div>
-                                        <div class="comment-content">
-                                            <p>${comment.content}</p>
-                                        </div>
-                                    </div>
+                
+                <!--textbox for comments and button to submit-->
+                
+                <div class="commentInputBlock">
+                    <textarea id="commentInput"></textarea>
+                    <button commentButton id="commentButton"><img src="assets/seal.png" alt=""></button>
+                </div>
+                
+                <!--empty div where all the comments go-->
+                <div class="commentBox">
+                <div class="comments">
+                </div>
+                </div>
+
+                <script>
+
+                    //This takes the post's title and makes it the header for this comment section by taking the link's ID and finding it in the posts array of the js file
+                    var id = window.location.search.slice(1).split("=")[1];
+                    var post = posts.find(t => t.id == id);
+                    console.log(post);
+                    var header = document.querySelector(".header")
+                    var headerHTML = `
+                                <!--This takes the post's title and makes it the header for this comment section-->
+                                <h1 class="title">${post.title}</h1> 
+                                <p class="postContent">${post.content}</p>
+                                <div class="bottom">
+                                <!--shows the date the post was made as well as how many comments the post has-->
+                                <p class="timestamp">${new Date(post.date).toLocaleString()}</p>
+                                <p class="comment-count">${post.comments.length} comments</p>
                                 </div>
-                                `
-                                comments.insertAdjacentHTML('beforeend', commentHTML);
-            }
+                            `
+                    header.insertAdjacentHTML('beforeend', headerHTML);
+                    
+                //This function appends the comment into the html file
+                    function addComment(comment){
+                        var commentHTML = `
+                                        <div class="comments">
+                                            <div class="comment">
+                                                <div class="top-comment">
+                                                    <p class="user">${comment.author}</p>
+                                                </div>
+                                                <div class="comment-content">
+                                                    <p>${comment.content}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        `
+                                        comments.insertAdjacentHTML('beforeend', commentHTML);
+                    }
 
-            //This takes the comments from the array identified above, and appends the comments from there
-            var comments = document.querySelector(".comments");          
-            for (let comment of post.comments){
-                addComment(comment);
-            }
+                    //This takes the comments from the array identified above, and appends the comments from there
+                    var comments = document.querySelector(".comments");          
+                    for (let comment of post.comments){
+                        addComment(comment);
+                    }
 
-            //This stores the data in the text area, and then runs the addComment function above to post it in the comments section, then clears the text area
-            var commentBTN = document.querySelector("#commentButton");
-            commentBTN.addEventListener('click', function(){
-                var txt = document.querySelector("#commentBox");
-                var comment = {
-                    content: txt.value,
-                    author: "User"
-                }
-            addComment(comment);
-            txt.value = ""
-            })
+                    //This stores the data in the text area, and then runs the addComment function above to post it in the comments section, then clears the text area
+                    var commentBTN = document.querySelector("#commentButton");
+                    commentBTN.addEventListener('click', function(){
+                        var txt = document.querySelector("#commentInput");
+                        var comment = {
+                            content: txt.value,
+                            author: "User"
+                        }
+                    addComment(comment);
+                    txt.value = ""
+                    })
 
-        </script>
+                </script>
+            </div>
+        </div>
     </div>
 </body>
